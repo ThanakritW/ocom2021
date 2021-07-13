@@ -2,8 +2,6 @@
 using namespace std;
 int n,h,m,ans;
 main(){
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
     cin >> n;
     for(int i=0;i<n;i++){
         cin >> h >> m;
@@ -12,7 +10,7 @@ main(){
         }
         else{
             ans=(20-h)*60+45-m;
-            cout << ans << " " << ceil((float)(ans/2.00)) << '\n';
+            cout << ans << " " << ceil((float)(ans/2)) << '\n';
         }
     }
 }
