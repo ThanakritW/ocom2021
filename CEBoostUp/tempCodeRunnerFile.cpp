@@ -3,13 +3,14 @@ using namespace std;
 double a,b,c;
 int main(){
     cin >> a >> b >> c;
-    printf("%lf %lf %lf is ",&a,&b,&c);
-    if(a+b>c){
+    printf("%.4lf, %.4lf and %.4lf are ",a,b,c);
+    if(a+b>c && b+c>a || a+c>b){
         if(a*a+b*b!=c*c){
-            cout << "not right triangle, but it is a triangle.";
+            cout << "NOT sides of RIGHT triangle, just a TRIANGLE.";
+            return 1;
         }
-        cout << "right triangle.";
+        else cout << "sides of RIGHT triangle.";
     }
-    else cout << "not a triangle.";
+    else cout << "NOT sides of triangle.";
     return 0;
 }
