@@ -21,14 +21,6 @@ int main(){
         for(int i=1;i<=n/2;i++){
             total=total/i;    
         }
-        ans=total;
-        total=2;
-        for(int i=n/2+2;i<=n;i++){
-            total=total*i;
-        }
-        for(int i=1;i<=n/2+1;i++){
-            total=total/i;    
-        }
-        cout << ans+total;
+        cout << total;
     }
 }

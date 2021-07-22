@@ -1,12 +1,19 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-long long s,t,n;
-int main(){
-    cin >> s >> t >> n;
-    if(n==0 || (n<0 && s<t) || (n>0 && s>t){
-        cout << "Go to hell";
-        return 0;
+int dp[1010],n,w,a[1010],b[1010];
+int ks(int x){
+    if(x>w) return -9999999;
+    if(dp[x]) return dp[x];
+    int mx=0;
+    for(int i=0;i<n;i++){
+        mx=max(mx,ks(x+a[i])+b[i]);
     }
-    for(int i=s;i<t;i+=n) cout << i << '\n';
-    cout << t;
+    return dp[x]=mx;
+}
+int main(){
+    cin >> n >> w;
+    for(int i=0;i<n;i++){
+        cin >> a[i] >> b[i];
+    }
+    cout << ks(0);
 }
