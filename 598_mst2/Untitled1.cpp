@@ -13,7 +13,7 @@ int fp(int a){
 }
 vector<node> v;
 int n,e,ta,tb,tc,cnt,x,y,dis;
-main(){asd
+main(){
     cin >> n >> e;
     for(int i=0;i<e;i++){
         cin >>  ta >> tb >> tc;
