@@ -16,9 +16,9 @@ bool cmpy(p a,p b){
     return a.y<b.y;
 }
 double cp(int l,int r){
-    if(l>=r) return DBL_MAX;
+    if(l>=r) return FLT_MAX;
     if(r-l<=2){
-        double mn=DBL_MAX;
+        double mn=FLT_MAX;
         for(int i=l;i<=r;i++){
             for(int j=i+1;j<=r;j++){
                 mn=min(mn,dist(v[i],v[j]));
@@ -26,7 +26,7 @@ double cp(int l,int r){
         }
         return mn;
     }
-    int m=r/2;
+    int m=l+(r-l)/2;
     double d=min(cp(l,m),cp(m+1,r));
     vector<p> stp;
     for(int i=l;i<=r;i++)
@@ -44,7 +44,7 @@ double cp(int l,int r){
 int main(){
     scanf("%d",&q);
     for(int k=0;k<q;k++){
-        scanf("%d",&n);+
+        scanf("%d",&n);
         for(int i=0;i<n;i++){
             scanf("%lf %lf",&ta,&tb);
             v.push_back({ta,tb});
