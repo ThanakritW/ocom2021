@@ -4,11 +4,11 @@ using namespace std;
 ll digital_root(ll x){
     if((x/10)==0) return x;
     else{
-        cout << "YEET";
         ll dr=0;
+        ll temp=x;
         for(ll i=0;i<ceil(x/10.000);i++){
-            dr+=i%10;
-            i=i/10;
+            dr+=temp%10;
+            temp=temp/10;
         }
         return digital_root(dr);
     }   
@@ -26,6 +26,7 @@ int main(){
             ll droot=digital_root(i);
             if(droot==9){
                 cout << " nine\n";
+                getchar();
             }
             else cout << " not nine\n";
         }
