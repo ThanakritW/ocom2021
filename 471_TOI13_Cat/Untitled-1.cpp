@@ -10,7 +10,7 @@ int main(){
         if(a[i]>u){
             u=a[i];
         }
-    }
+    }   
     while(l<u){
         m=(l+u)/2;
         ex=0;
