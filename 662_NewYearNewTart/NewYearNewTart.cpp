@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 long long a[200100],n,dp[200100];
+
 int main(){
     cin >> n;
     for(int i=0;i<n;i++){
