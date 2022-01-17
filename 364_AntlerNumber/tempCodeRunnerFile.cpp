@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll n,t,k[2000010],mx,ans=0;
+int main(){
+    cin >> n;
+    mx=0;
+    for(int i=0;i<n;i++){
+        cin >> t;
+        mx=max(mx,t);
+        for(int i=1;i<=sqrt(t);i++){
+            if(t%i==0){
+                k[i]++;
+                if(i!=t/i) k[t/i]++;
+            }
+        }
+    }
+    for(int i=1;i<=mx;i++){
+        ans=max(ans,i*k[i]);
+    }
+    cout << ans;
+    return 0;
+}

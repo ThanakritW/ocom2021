@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct p{
+    double x,y;
+};
+int q,n;
+double ta,tb,ans;
+vector<p> v;
+double dist(p a, p b){
+    return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
+}
+bool cmpx(p a,p b){
+    return a.x<b.x;
+}
+bool cmpy(p a,p b){
+    return a.y<b.y;
+}
+double cp(int l,int r){
+    if(l>=r) return FLT_MAX;
+    if(r-l<=2){
+        double mn=FLT_MAX;
+        for(int i=l;i<=r;i++){
+            for(int j=i+1;j<=r;j++){
+                mn=min(mn,dist(v[i],v[j]));
+            }
+        }
+        return mn;
+    }
+    int m=l+(r-l)/2;
+    double d=min(cp(l,m),cp(m+1,r));
+    vector<p> stp;
+    for(int i=l;i<=r;i++)
+        if(abs(v[i].x-v[m].x)<d)
+            stp.push_back(v[i]);
+    sort(stp.begin(),stp.end(),cmpy);
+    for(int i=0;i<stp.size();i++){
+        for(int j=i+1;j<stp.size();j++){
+            if(stp[j].y-stp[i].y>=d) break;
+            d=min(d,dist(stp[i],stp[j]));
+        }
+    }
+    return d;
+}
+int r,d;
+int main(){
+    ios_base::sync_with_stdio(0);cin.tie(0);
+    cin >> q;
+    for(int k=0;k<q;k++){
+        cin >> n >> r >> d;
+        for(int i=0;i<n;i++){
+            cin >> ta >> tb;
+            v.push_back({ta,tb});
+        }
+        sort(v.begin(),v.end(),cmpx);
+        ans=cp(0,n-1);
+        if(ans<r+r+d) cout << "N\n";    
+        else cout << "Y\n"; 
+        v.clear();
+    }
+    return 0;
+}

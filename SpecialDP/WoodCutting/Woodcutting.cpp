@@ -14,7 +14,6 @@ int cut(int x){
         }
         return dp[x];
     }    
-
 }
 int main(){
     cin >> n >> k;
